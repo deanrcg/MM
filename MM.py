@@ -294,12 +294,18 @@ def generate_features(ticker):
         latest = df.dropna().iloc[-1]
         print(f"Latest data for {ticker}: {latest.to_dict()}")
         
-        # Calculate 5-day return
+        # Calculate 5-day return with improved error handling
         try:
             # Get scalar values from Series
             last_close = float(df['Close'].iloc[-1].item())
             five_days_ago_idx = -6 if len(df) > 5 else 0
             five_days_ago_close = float(df['Close'].iloc[five_days_ago_idx].item())
+            
+            # Validate the values
+            if last_close <= 0 or five_days_ago_close <= 0:
+                print(f"Invalid price values for {ticker}: last_close={last_close}, five_days_ago_close={five_days_ago_close}")
+                return None
+                
             five_day_return = (last_close - five_days_ago_close) / five_days_ago_close
             print(f"5-day return for {ticker}: {five_day_return:.4f}")
         except Exception as e:
@@ -317,7 +323,7 @@ def generate_features(ticker):
             'DL_Prediction': 0.0  # Will be updated later
         }
         
-        # Verify all values are valid numbers
+        # Enhanced validation of all values
         for key, value in feature_dict.items():
             if key != 'Ticker':
                 try:
