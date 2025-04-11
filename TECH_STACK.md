@@ -1,106 +1,92 @@
-# Technology Stack & AI Components
+# Market Movers - Technical Stack
+
+## Overview
+Market Movers is a desktop application built with PyQt6 that analyzes Dow Jones stocks to predict top gainers and losers. The application combines technical analysis, news sentiment analysis, and deep learning predictions to provide comprehensive market insights.
 
 ## Core Technologies
 
-### Programming Languages
-- Python 3.x (Primary language)
-- JavaScript/Node.js (Package management support)
+### Frontend
+- **PyQt6**: Modern GUI framework for desktop applications
+- **QTableWidget**: For displaying stock data in tabular format
+- **QProgressBar**: For showing data loading progress
+- **QTabWidget**: For organizing different views (Predictions and Analysis)
 
-### Data Processing & Analysis
-- pandas: Data manipulation and analysis
-- numpy: Numerical computations
-- yfinance: Yahoo Finance API wrapper for stock data
-- ta: Technical analysis indicators
+### Backend
+- **Python 3.13**: Core programming language
+- **Pandas**: Data manipulation and analysis
+- **NumPy**: Numerical computations
+- **yfinance**: Stock data retrieval
+- **ta**: Technical analysis indicators
+- **PyTorch**: Deep learning model implementation
+- **scikit-learn**: Data preprocessing and normalization
 
-### API Integration
-- Finnhub API: Real-time stock market data and news
-- requests: HTTP library for API calls
+## Key Features
 
-### File Handling
-- openpyxl: Excel file operations
-- python-dotenv: Environment variable management
-
-### GUI Framework
-- PyQt6: Modern desktop application framework
-  - QTableWidget for data display
-  - QProgressBar for operation feedback
-  - QTabWidget for organized interface
-  - Custom table population and formatting
-
-## AI & Machine Learning Components
+### Data Collection
+- Real-time stock data from Yahoo Finance
+- Historical price data for technical analysis
+- News sentiment analysis from Finnhub API
 
 ### Technical Analysis
-- RSI (Relative Strength Index): Momentum indicator
-- MACD (Moving Average Convergence Divergence): Trend indicator
-- Custom scoring algorithm combining multiple indicators
+- RSI (Relative Strength Index)
+- MACD (Moving Average Convergence Divergence)
+- 5-day returns calculation
+- Bollinger Bands (in deep learning model)
 
-### Natural Language Processing
-- Custom sentiment analysis on news headlines and summaries
-- Keyword-based scoring system for news sentiment
+### Deep Learning Integration
+- LSTM-based architecture with attention mechanism
+- Multi-feature input (technical indicators + sentiment)
+- Adaptive learning from historical performance
+- Real-time prediction updates
 
-## Development Tools
+### Prediction System
+- Weighted scoring algorithm:
+  - 25% Deep Learning Prediction
+  - 20% Recent Performance (5-day return)
+  - 20% Trend (MACD)
+  - 20% Momentum (RSI)
+  - 15% News Sentiment
 
-### Version Control
-- Git
-- GitHub
-
-### Package Management
-- pip (Python packages)
-- npm (Node.js packages)
-
-### Documentation
-- Markdown
-- JSON
-
-## Data Sources
-
-### Market Data
-- Yahoo Finance (via yfinance)
-  - Historical price data
-  - Trading volumes
-  - Market indicators
-
-### News & Sentiment
-- Finnhub API
-  - Company news
-  - Market news
-  - Press releases
-
-## Scoring System
-
-### Technical Components (90%)
-- Recent Performance (40%): 5-day returns
-- Trend Analysis (30%): MACD
-- Momentum (20%): RSI
-
-### AI Components (10%)
-- News Sentiment Analysis
-  - Positive keywords: beat, strong, positive, growth, increase, profit
-  - Negative keywords: miss, weak, negative, decline, decrease, loss
+### Accuracy Tracking
+- Real-time accuracy metrics
+- Historical performance tracking
+- Separate metrics for gainers and losers
+- Overall prediction accuracy
 
 ## Recent Improvements
+1. Fixed table display issues
+2. Added proper MultiIndex DataFrame handling
+3. Improved error handling and data validation
+4. Enhanced deep learning integration
+5. Added comprehensive accuracy tracking
 
-### Data Display
-- Enhanced table population logic
-- Improved data type handling
-- Better error handling and debugging
-- Consistent formatting for numerical values
+## Future Enhancements
+1. Additional technical indicators
+2. Advanced visualization features
+3. Real-time data updates
+4. Machine learning model optimization
+5. User customization options
 
-### User Interface
-- Real-time progress updates
-- Responsive table updates
-- Clear data organization
-- Improved error feedback
+## Dependencies
+```
+yfinance>=0.2.36
+pandas>=2.0.0
+ta>=0.10.2
+requests>=2.31.0
+python-dotenv>=1.0.0
+openpyxl>=3.1.2
+PyQt6>=6.4.0
+torch>=2.0.0
+scikit-learn>=1.0.0
+numpy>=1.21.0
+```
 
-## Future Enhancement Opportunities
-
-### AI/ML Improvements
-- Implement machine learning models for price prediction
-- Add natural language processing for more sophisticated sentiment analysis
-- Integrate deep learning for pattern recognition
-
-### Technical Additions
-- Add more technical indicators
-- Implement backtesting capabilities
-- Add real-time market data streaming
-- Enhanced error recovery and data validation 
+## Project Structure
+```
+MM/
+├── MM.py              # Main application logic
+├── gui.py             # GUI implementation
+├── dl_model.py        # Deep learning model
+├── requirements.txt   # Dependencies
+└── TECH_STACK.md      # Technical documentation
+``` 
