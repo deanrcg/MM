@@ -20,6 +20,13 @@
 - openpyxl: Excel file operations
 - python-dotenv: Environment variable management
 
+### GUI Framework
+- PyQt6: Modern desktop application framework
+  - QTableWidget for data display
+  - QProgressBar for operation feedback
+  - QTabWidget for organized interface
+  - Custom table population and formatting
+
 ## AI & Machine Learning Components
 
 ### Technical Analysis
@@ -71,6 +78,20 @@
   - Positive keywords: beat, strong, positive, growth, increase, profit
   - Negative keywords: miss, weak, negative, decline, decrease, loss
 
+## Recent Improvements
+
+### Data Display
+- Enhanced table population logic
+- Improved data type handling
+- Better error handling and debugging
+- Consistent formatting for numerical values
+
+### User Interface
+- Real-time progress updates
+- Responsive table updates
+- Clear data organization
+- Improved error feedback
+
 ## Future Enhancement Opportunities
 
 ### AI/ML Improvements
@@ -81,4 +102,5 @@
 ### Technical Additions
 - Add more technical indicators
 - Implement backtesting capabilities
-- Add real-time market data streaming 
+- Add real-time market data streaming
+- Enhanced error recovery and data validation 
